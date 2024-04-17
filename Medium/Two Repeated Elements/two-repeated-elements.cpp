@@ -11,18 +11,21 @@ using namespace std;
 class Solution {
   public:
     //Function to find two repeated elements.
-    vector<int> twoRepeated (int arr[], int N) {
-        unordered_map<int,int>mp;
-        vector<int>v;
-        for(int i=0;i<N+2;i++)
-        {
-            int key=arr[i];
-            mp[key]++;
-            if(mp[key]==2)
-            v.push_back(key);
-        }
-        return v;
-
+    vector<int> twoRepeated (int arr[], int n) {
+        // Your code here
+        map<int,int>count;
+       vector<int>ans;
+       for(int i=0;i<n+2;i++)
+         {
+             count[arr[i]]++;
+             
+             if(count[arr[i]]==2)
+             {
+                 ans.push_back(arr[i]);
+              }
+          }
+          
+        return ans;
     }
 };
 
