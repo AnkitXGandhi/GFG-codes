@@ -12,18 +12,26 @@ class Solution
     bool ispar(string x)
     {
         // Your code here
-        stack<char>st;
-        for(int i=0;i<x.size();i++)
-        {
-            if(st.empty())
-            st.push(x[i]);
-            else if(st.top()=='(' && x[i]==')'||st.top()=='{' && x[i]=='}'||st.top()=='[' && x[i]==']')
-            st.pop();
-            else
-            st.push(x[i]);
+        stack<char>s;
+        for(int i=0;i<x.size();i++){
+           if(x[i]=='(' || x[i]=='{' || x[i]=='[')
+                s.push(x[i]);
+            else{
+                if(s.empty())
+                    return false;
+                if(x[i]==')' && s.top()=='(')
+                    s.pop();
+                else if(x[i]=='}' && s.top()=='{')
+                    s.pop();
+                else if(x[i]==']' && s.top()=='[')
+                    s.pop();
+                else
+                    return false;
+            }
+            
         }
         
-        return st.empty(); 
+        return s.empty();
     }
 
 };
