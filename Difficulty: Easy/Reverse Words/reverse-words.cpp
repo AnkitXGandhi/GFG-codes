@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // } Driver Code Ends
 
 class Solution
@@ -25,17 +26,16 @@ class Solution
     } 
 };
 
+
 //{ Driver Code Starts.
-int main() 
-{
+int main() {
     int t;
     cin >> t;
-    while (t--) 
-    {
+    while (t--) {
         string s;
         cin >> s;
         Solution obj;
-        cout<<obj.reverseWords(s)<<endl;
+        cout << obj.reverseWords(s) << endl;
     }
 }
 // } Driver Code Ends
