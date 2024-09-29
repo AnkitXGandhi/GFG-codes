@@ -96,22 +96,21 @@ class Solution {
   public:
     // Function to return a list of integers denoting the node
     // values of both the BST in a sorted order.
+    void inorder(Node* root,vector<int>&ans){
+        if(!root) return;
+        inorder(root->left,ans);
+        ans.push_back(root->data);
+        inorder(root->right,ans);
+        
+    }
     vector<int> merge(Node *root1, Node *root2) {
         // Your code here
-          vector<int> ans;
-    solve(root1, ans);
-    solve(root2, ans);
-    sort(ans.begin(), ans.end());
-    return ans;
+        vector<int>ans;
+        inorder(root1,ans);
+        inorder(root2,ans);
+        sort(ans.begin(),ans.end());
+        return ans;
     }
-    void solve(Node *root, vector<int> &ans)
-{
-    if (!root)
-        return;
-    solve(root->left, ans);
-    ans.push_back(root->data);
-    solve(root->right, ans);
-}
 };
 
 //{ Driver Code Starts.
