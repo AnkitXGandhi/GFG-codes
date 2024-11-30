@@ -7,12 +7,15 @@ using namespace std;
 class Solution {
   public:
     // Function is to check whether two strings are anagram of each other or not.
-    bool isAnagram(string a, string b) {
-        unordered_map<char,int>mpp1,mpp2;
-        for(int i=0;i<a.length();i++) mpp1[a[i]]++;
-        for(int i=0;i<b.length();i++) mpp2[b[i]]++;
-        return mpp1==mpp2;
+    bool areAnagrams(string& s1, string& s2) {
         // Your code here
+         if(s1.length() != s2.length()) return false;
+        vector<int> freq(26);
+        for(int i = 0; i < s1.length(); i++){
+            freq[s1[i] - 'a']++;
+            freq[s2[i] - 'a']--;
+        }
+        return freq == vector<int>(26);
     }
 };
 
@@ -29,10 +32,11 @@ int main() {
 
         cin >> c >> d;
         Solution obj;
-        if (obj.isAnagram(c, d))
-            cout << "YES" << endl;
+        if (obj.areAnagrams(c, d))
+            cout << "true" << endl;
         else
-            cout << "NO" << endl;
+            cout << "false" << endl;
+        cout << "~" << endl;
     }
 }
 
